@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="212" pageHeight="600" columnWidth="181" leftMargin="11" rightMargin="20" topMargin="20" bottomMargin="20" uuid="48df6a3a-3b83-4e65-9494-6fb044032241">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="372"/>
+	<parameter name="change" class="java.lang.String"/>
+	<parameter name="tender" class="java.lang.String"/>
+	<parameter name="net" class="java.lang.String"/>
+	<parameter name="dis" class="java.lang.String"/>
+	<parameter name="cashier" class="java.lang.String"/>
+	<parameter name="gross" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[Select temp_id,name,rate,category,barcode,quantity,amount,discount,(rate * quantity) 
+AS calc from temp]]>
+	</queryString>
+	<field name="temp_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="rate" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="category" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="barcode" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="quantity" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="amount" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="discount" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="calc" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="181" height="20" uuid="2c1a0d6f-269f-4301-bdef-c29ec10692c8"/>
+				<textElement textAlignment="Center">
+					<font fontName="OCR A Extended"/>
+				</textElement>
+				<text><![CDATA[Supermarket Billing System]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="180" height="20" uuid="7ca949ad-014c-456e-a9a6-ec14ca7c5f56"/>
+				<textElement textAlignment="Center">
+					<font fontName="OCR A Extended"/>
+				</textElement>
+				<text><![CDATA[INVOICE]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="64" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="47" height="13" uuid="c9129229-9d51-4d90-a595-337e320bf267"/>
+				<textElement>
+					<font fontName="OCR A Extended"/>
+				</textElement>
+				<text><![CDATA[Date :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="18" y="33" width="68" height="20" uuid="8aaf7d93-0adf-4b9c-af22-3139d629e488"/>
+				<textElement textAlignment="Center">
+					<font fontName="OCR A Extended"/>
+				</textElement>
+				<text><![CDATA[Particulars]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="47" y="0" width="100" height="13" uuid="27f06e23-77d1-4fe0-bb45-e8a8503d8114"/>
+				<textElement>
+					<font fontName="OCR A Extended"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="13" width="47" height="20" uuid="39603e9a-67ea-4170-9f75-bb60984e7c91"/>
+				<textElement>
+					<font fontName="OCR A Extended"/>
+				</textElement>
+				<text><![CDATA[Time :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="86" y="33" width="26" height="20" uuid="84aae57e-9b37-42f5-b75e-3fb68611fbf6"/>
+				<textElement textAlignment="Center">
+					<font fontName="OCR A Extended"/>
+				</textElement>
+				<text><![CDATA[Qty]]></text>
+			</staticText>
+			<textField pattern="h.mm.ss a">
+				<reportElement x="47" y="13" width="100" height="20" uuid="75f8069f-0ac1-4238-a0fe-4773fc016054"/>
+				<textElement>
+					<font fontName="OCR A Extended"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="33" width="18" height="20" uuid="1128840c-bdf6-4087-aacc-d015aaeaca37"/>
+				<textElement textAlignment="Center">
+					<font fontName="OCR A Extended"/>
+				</textElement>
+				<text><![CDATA[Sn]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="47" width="180" height="16" uuid="68ad287b-604a-43e7-aa94-61d30bcab472"/>
+				<textElement textAlignment="Justified">
+					<font fontName="OCR A Extended"/>
+				</textElement>
+				<text><![CDATA[---------------------------------------------------------------]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="138" y="33" width="43" height="20" uuid="db3631b2-fd34-43e4-812e-9de4110f24fd"/>
+				<textElement textAlignment="Center">
+					<font fontName="OCR A Extended"/>
+				</textElement>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="22" width="180" height="16" uuid="1b5888f9-2a10-47e3-a13a-f023b3f69bf5"/>
+				<textElement textAlignment="Justified">
+					<font fontName="OCR A Extended"/>
+				</textElement>
+				<text><![CDATA[---------------------------------------------------------------]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="112" y="33" width="26" height="20" uuid="f5d0977e-8801-43b3-8770-f7cb3e03ba5b"/>
+				<textElement textAlignment="Center">
+					<font fontName="OCR A Extended"/>
+				</textElement>
+				<text><![CDATA[Rate]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="112" y="0" width="26" height="20" uuid="cac3dfa8-4c90-4c30-8a75-e7016a787290"/>
+				<textElement textAlignment="Center">
+					<font fontName="OCR A Extended"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rate}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="86" y="0" width="26" height="20" uuid="34ac5a2a-e425-4b41-9cc3-884f3b7183aa"/>
+				<textElement textAlignment="Center">
+					<font fontName="OCR A Extended"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{quantity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="18" y="0" width="68" height="20" uuid="0620a301-18b0-4e2d-984d-7cd2553c9107"/>
+				<textElement>
+					<font fontName="OCR A Extended"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="138" y="0" width="43" height="20" uuid="4ef0ec59-b0c1-48b8-96d2-c058f7b364f8"/>
+				<textElement textAlignment="Right">
+					<font fontName="OCR A Extended"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{calc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="18" height="20" uuid="8a67f991-c392-4e3b-8286-0edd74ea8303"/>
+				<textElement>
+					<font fontName="OCR A Extended"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="129" splitType="Stretch">
+			<staticText>
+				<reportElement x="47" y="0" width="133" height="16" uuid="f61427c0-2728-49c6-84bc-9864beb1f62a"/>
+				<textElement>
+					<font fontName="OCR A Extended"/>
+				</textElement>
+				<text><![CDATA[-------------------------------------]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="49" y="64" width="132" height="16" uuid="e74f96d6-f858-48a0-8489-fd5ed70b4882"/>
+				<textElement>
+					<font fontName="OCR A Extended"/>
+				</textElement>
+				<text><![CDATA[-------------------------------------]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="49" y="96" width="89" height="16" uuid="1a94e9a1-ddc1-46c1-8986-7847b6567594"/>
+				<textElement>
+					<font fontName="OCR A Extended"/>
+				</textElement>
+				<text><![CDATA[Change       :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="47" y="16" width="89" height="16" uuid="f13cb22a-5ed5-465e-ad9a-7c92900e67f5"/>
+				<textElement>
+					<font fontName="OCR A Extended"/>
+				</textElement>
+				<text><![CDATA[Gross Amount : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="49" y="80" width="89" height="16" uuid="97c24d71-2c8f-48af-8621-be7d6d5c1da7"/>
+				<textElement>
+					<font fontName="OCR A Extended"/>
+				</textElement>
+				<text><![CDATA[Tender       :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="49" y="112" width="131" height="16" uuid="42aa4c9a-9ac8-452e-ab01-292d407d3315"/>
+				<textElement>
+					<font fontName="OCR A Extended"/>
+				</textElement>
+				<text><![CDATA[-------------------------------------]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="49" y="48" width="87" height="16" uuid="9f7df748-f079-4e0d-a280-359d6ebf5583"/>
+				<textElement>
+					<font fontName="OCR A Extended"/>
+				</textElement>
+				<text><![CDATA[Net Amount   : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="47" y="32" width="89" height="16" uuid="e217d8aa-7e1a-40f5-a378-58648523fb2d"/>
+				<textElement>
+					<font fontName="OCR A Extended"/>
+				</textElement>
+				<text><![CDATA[Discount     :     : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="138" y="96" width="42" height="16" uuid="d0bf3efe-8dab-441d-823e-c934835f1dfb"/>
+				<textElement>
+					<font fontName="OCR A Extended"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{change}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="136" y="32" width="45" height="16" uuid="acbc4ce5-390d-4387-896f-dce0ec8f03c1"/>
+				<textElement>
+					<font fontName="OCR A Extended"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dis}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="138" y="48" width="43" height="16" uuid="ac037522-9276-41c9-ad71-179d608dde50"/>
+				<textElement>
+					<font fontName="OCR A Extended"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{net}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="136" y="16" width="45" height="16" uuid="4c70ca5c-0a7c-47dc-b423-42321320a72f"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="OCR A Extended" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{gross}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="138" y="80" width="42" height="16" uuid="7122fed5-9740-4858-8c72-1b2de31ffb39"/>
+				<textElement>
+					<font fontName="OCR A Extended"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tender}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="82" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="24" width="180" height="12" uuid="3c2ae16e-ed26-4533-8438-c9b40c5f7ac1"/>
+				<textElement textAlignment="Left">
+					<font fontName="OCR A Extended" size="9"/>
+				</textElement>
+				<text><![CDATA[Semester Project]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="12" width="180" height="12" uuid="0b367c7c-e0c6-47fa-ad05-a748a966c75f"/>
+				<textElement textAlignment="Left">
+					<font fontName="OCR A Extended" size="9"/>
+				</textElement>
+				<text><![CDATA[Developed by :BIT VI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="36" width="180" height="12" uuid="3c02c62c-5a71-4c0c-89a6-ad58756730ce"/>
+				<textElement textAlignment="Left">
+					<font fontName="OCR A Extended" size="9"/>
+				</textElement>
+				<text><![CDATA[**Conditions Apply**]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-3" y="48" width="184" height="12" uuid="291ce9b2-492e-4179-9986-4d9bcabf34e8"/>
+				<textElement textAlignment="Justified">
+					<font fontName="OCR A Extended"/>
+				</textElement>
+				<text><![CDATA[-----------------------------------------------------------------]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="180" height="12" uuid="77e8ada4-5e5a-4738-9c1c-3475db3ea410"/>
+				<textElement textAlignment="Justified">
+					<font fontName="OCR A Extended"/>
+				</textElement>
+				<text><![CDATA[-----------------------------------------------------------------]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="58" y="60" width="100" height="12" uuid="9821fd58-d281-44ed-b2ef-f59144949170"/>
+				<textElement>
+					<font fontName="OCR A Extended" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cashier}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="60" width="58" height="12" uuid="dab4443c-9c33-42b5-b2ce-8ab43b6e982a"/>
+				<textElement textAlignment="Left">
+					<font fontName="OCR A Extended" size="9"/>
+				</textElement>
+				<text><![CDATA[Cashier :]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
